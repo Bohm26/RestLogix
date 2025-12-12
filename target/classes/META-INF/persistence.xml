@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence" 
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+             version="3.1" 
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_1.xsd">
+    <persistence-unit name="RestLogixPU">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        
+        <!-- Lista de entidades -->
+        <class>models.Recipe</class>
+        <class>models.Ingredient</class>
+        <class>models.RecipeIngredients</class>
+        <class>models.Inventory</class>
+        <class>models.InventoryMovement</class>
+        <class>models.Supplier</class>    
+        <class>models.User</class> 
+        
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost/RestLogix"/>
+            <property name="jakarta.persistence.jdbc.user" value="root"/>
+            <property name="jakarta.persistence.jdbc.password" value="Pringles20%"/>
+            
+            <!-- Configurações do Hibernate -->
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            
+            <!-- Remova o dialect (não é necessário a partir do Hibernate 6) -->
+        </properties>
+    </persistence-unit>
+</persistence>
