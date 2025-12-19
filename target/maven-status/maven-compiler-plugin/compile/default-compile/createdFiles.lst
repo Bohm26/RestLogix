@@ -1,4 +1,5 @@
 domain/User.class
+com/mycompany/restlogixv2/Main.class
 repository/UserRepository.class
 repository/impl/InventoryRepositoryImpl.class
 dto/LoginDTO.class
@@ -13,7 +14,6 @@ domain/Inventory.class
 domain/RecipeIngredient.class
 exception/ValidationException.class
 repository/InventoryRepository.class
-com/mycompany/reslogixv2/Main.class
 exception/BusinessException.class
 domain/Recipe.class
 service/RecipeService.class

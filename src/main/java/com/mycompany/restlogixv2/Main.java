@@ -1,4 +1,4 @@
-package com.mycompany.reslogixv2;
+package com.mycompany.restlogixv2;
 
 import domain.*;
 import dto.LoginDTO;
@@ -52,7 +52,6 @@ public class Main {
 
 		} catch (Exception e) {
 			System.err.println("\n❌ ERRO: " + e.getMessage());
-			e.printStackTrace();
 		}
 	}
 }

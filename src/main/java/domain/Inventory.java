@@ -110,4 +110,13 @@ public class Inventory {
 			this.quantity -= amount;
 		}
 	}
+
+	@Override
+	public String toString() {
+		return "Inventory{"
+				+ "name='" + name + '\''
+				+ ", quantity=" + quantity
+				+ ", unit='" + unit + '\''
+				+ '}';
+	}
 }
