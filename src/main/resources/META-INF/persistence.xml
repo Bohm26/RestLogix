@@ -17,7 +17,7 @@
         
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost/RestLogix"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost/restlogix"/>
             <property name="jakarta.persistence.jdbc.user" value="root"/>
             <property name="jakarta.persistence.jdbc.password" value="Pringles20%"/>
             
@@ -25,8 +25,7 @@
             <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
-            
-            <!-- Remova o dialect (não é necessário a partir do Hibernate 6) -->
+                                
         </properties>
     </persistence-unit>
 </persistence>

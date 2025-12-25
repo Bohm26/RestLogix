@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Receitas</title>
+
+    <link rel="stylesheet" href="/css/receita.css" type="text/css"/>
+
+</head>
+<body>
+
+<div class="container">
+    <h1>Receitas</h1>
+
+    <input type="text" placeholder="Procurar Receita" onkeyup="searchRecipe(this.value)">
+
+    <ul id="recipeList">
+        <li onclick="openRecipe('Arroz Carreteiro')">Arroz Carreteiro</li>
+        <li onclick="openRecipe('Feijoada')">Feijoada</li>
+    </ul>
+
+    <div class="buttons">
+        <button onclick="cancel()">Cancelar</button>
+        <button onclick="goAdd()">Cadastrar</button>
+    </div>
+</div>
+
+<script src="../js/receita.js"></script>
+</body>
+</html>

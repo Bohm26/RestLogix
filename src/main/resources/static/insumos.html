@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>RestLogix | Insumos</title>
+
+    <link rel="stylesheet" href="/css/insumo.css" type="text/css"/>
+</head>
+<body>
+
+<div class="container">
+
+    <aside class="sidebar">
+        <h2>RestLogix</h2>
+
+        <nav>
+            <button onclick="goTo('dashboard.html')">Dashboard</button>
+            <button onclick="goTo('estoque.html')">Estoque</button>
+            <button onclick="goTo('receitas.html')">Receitas</button>
+            <button class="active">Insumos</button>
+        </nav>
+
+        <button class="logout" onclick="logout()">Sair</button>
+    </aside>
+
+    <main class="content">
+        <h1>Cadastro de Insumos</h1>
+
+        <form class="insumo-form" onsubmit="saveInsumo(event)">
+            <label>Nome</label>
+            <input type="text" id="name" required>
+
+            <label>Descrição</label>
+            <input type="text" id="description">
+
+            <label>Quantidade</label>
+            <input type="number" id="quantity" required>
+
+            <label>Unidade</label>
+            <input type="text" id="unit" placeholder="kg, un, L..." required>
+
+            <label>Categoria</label>
+            <input type="text" id="category">
+
+            <label>Estoque mínimo</label>
+            <input type="number" id="minimumStock">
+
+            <label>Validade</label>
+            <input type="date" id="expiryDate">
+
+            <button type="submit">Salvar Insumo</button>
+        </form>
+    </main>
+
+</div>
+
+<script src="../js/insumo.js"></script>
+</body>
+</html>

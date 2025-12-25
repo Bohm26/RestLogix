@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Adicionar Receita</title>
+
+    <link rel="stylesheet" href="/css/receita.css" type="text/css"/>
+
+</head>
+<body>
+
+<div class="container">
+    <h1>Adicionar Receita</h1>
+
+    <label>Nome:</label>
+    <input type="text" id="recipeName">
+
+    <div id="ingredients">
+        <div class="ingredient">
+            <input type="text" placeholder="Ingrediente">
+            <input type="number" placeholder="Quantidade">
+        </div>
+    </div>
+
+    <button onclick="addIngredient()">+</button>
+
+    <hr>
+
+    <textarea placeholder="Breve Descrição!"></textarea>
+
+    <div class="buttons">
+        <button onclick="cancel()">Cancelar</button>
+        <button onclick="saveRecipe()">Cadastrar</button>
+    </div>
+</div>
+
+<script src="../js/receita.js"></script>
+</body>
+</html>

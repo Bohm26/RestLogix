@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>RestLogix | Dashboard</title>
+
+    <link rel="stylesheet" href="/css/dashboard.css" type="text/css"/>
+
+</head>
+<body>
+
+<div class="container">
+
+    <aside class="sidebar">
+        <h2>RestLogix</h2>
+
+        <nav>
+            <button onclick="navigate('dashboard')">Dashboard</button>
+            <button onclick="navigate('estoque')">Estoque</button>
+            <button onclick="navigate('receitas')">Receitas</button>
+            <button onclick="navigate('insumos')">Insumos</button>
+        </nav>
+
+        <button class="logout" onclick="logout()">Sair</button>
+    </aside>
+
+    <main class="content">
+        <h1>Dashboard</h1>
+
+        <div class="card">
+    <h3>Total de Insumos</h3>
+    <p id="totalInsumos">0</p>
+</div>
+
+<div class="card">
+    <h3>Receitas Cadastradas</h3>
+    <p id="totalReceitas">0</p>
+</div>
+
+<div class="card">
+    <h3>Itens em Falta</h3>
+    <p id="itensFalta">0</p>
+</div>
+    </main>
+
+</div>
+
+<script src="../js/dashboard.js"></script>
+</body>
+</html>

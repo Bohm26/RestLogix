@@ -4,7 +4,7 @@
  */
 package com.mycompany.restlogixv2;
 
-import domain.Inventory;
+import com.mycompany.restlogixv2.entities.Inventory;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;

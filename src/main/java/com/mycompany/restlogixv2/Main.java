@@ -1,57 +1,74 @@
 package com.mycompany.restlogixv2;
 
-import domain.*;
-import dto.LoginDTO;
-import repository.impl.*;
-import service.*;
+import com.mycompany.restlogixv2.entities.Inventory;
+import com.mycompany.restlogixv2.entities.Recipe;
+import com.mycompany.restlogixv2.entities.User;
+import com.mycompany.restlogixv2.dto.LoginDTO;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import com.mycompany.restlogixv2.service.InventoryService;
+import com.mycompany.restlogixv2.service.RecipeService;
+import com.mycompany.restlogixv2.service.AuthService;
+
 import java.util.List;
 
+@SpringBootApplication
 public class Main {
 
-	public static void main(String[] args) {
-		System.out.println("=== RESLOGIX V2 - TESTES ===\n");
+    public static void main(String[] args) {
+        SpringApplication.run(Main.class, args);
+    }
 
-		try {
-			// 1. Testar repositórios
-			System.out.println("1. 🗄️ TESTANDO REPOSITÓRIOS");
+    // Bean para rodar testes ao iniciar a aplicação
 
-			UserRepositoryImpl userRepo = new UserRepositoryImpl();
-			System.out.println("   ✅ UserRepository: " + userRepo.findAll().size() + " usuários");
+	/**
+	 *
+	 * @param authService
+	 * @param inventoryService
+	 * @param recipeService
+	 * @return
+	 */
+    @Bean
+    public CommandLineRunner run(AuthService authService,
+                                 InventoryService inventoryService,
+                                 RecipeService recipeService) {
+        return args -> {
+            System.out.println("=== RESLOGIX V2 - TESTES ===\n");
 
-			InventoryRepositoryImpl invRepo = new InventoryRepositoryImpl();
-			System.out.println("   ✅ InventoryRepository: " + invRepo.findAll().size() + " itens");
+            try {
+                // 1. Testar usuários
+                System.out.println("1. 🗄️ TESTANDO USUÁRIOS");
 
-			RecipeRepositoryImpl recipeRepo = new RecipeRepositoryImpl();
-			System.out.println("   ✅ RecipeRepository: " + recipeRepo.findAll().size() + " receitas");
+                List<User> allUsers = authService.getAllUsers(); // precisa criar este método no AuthService
+                System.out.println("   ✅ Usuários cadastrados: " + allUsers.size());
 
-			// 2. Testar serviços
-			System.out.println("\n2. ⚙️ TESTANDO SERVIÇOS");
+                // 2. Testar login
+                System.out.println("\n2. ⚙️ TESTANDO LOGIN");
+                try {
+                    LoginDTO login = new LoginDTO("admin", "admin123");
+                    User user = authService.login(login);
+                    System.out.println("   ✅ Login realizado: " + user.getName());
+                } catch (Exception e) {
+                    System.out.println("   ⚠️ Login falhou: " + e.getMessage());
+                }
 
-			AuthService authService = new AuthService(userRepo);
-			InventoryService invService = new InventoryService(invRepo);
-			RecipeService recipeService = new RecipeService(recipeRepo);
+                // 3. Testar estoque
+                System.out.println("\n3. 🗃️ TESTANDO ESTOQUE");
+                List<Inventory> items = inventoryService.getAllItems();
+                System.out.println("   ✅ Itens em estoque: " + items.size());
 
-			// Teste login
-			try {
-				LoginDTO login = new LoginDTO("admin", "admin123");
-				User user = authService.login(login);
-				System.out.println("   ✅ Login: " + user.getName());
-			} catch (Exception e) {
-				System.out.println("   ⚠️  Login: " + e.getMessage());
-			}
+                // 4. Testar receitas
+                System.out.println("\n4. 🥘 TESTANDO RECEITAS");
+                List<Recipe> recipes = recipeService.getAllRecipes();
+                System.out.println("   ✅ Receitas cadastradas: " + recipes.size());
 
-			// Listar itens
-			List<Inventory> items = invService.getAllItems();
-			System.out.println("   ✅ Itens em estoque: " + items.size());
+                System.out.println("\n✅ SISTEMA FUNCIONANDO!");
 
-			// Listar receitas
-			List<Recipe> recipes = recipeService.getAllRecipes();
-			System.out.println("   ✅ Receitas: " + recipes.size());
-
-			System.out.println("\n✅ SISTEMA FUNCIONANDO!");
-
-		} catch (Exception e) {
-			System.err.println("\n❌ ERRO: " + e.getMessage());
-		}
-	}
+            } catch (Exception e) {
+                System.err.println("\n❌ ERRO: " + e.getMessage());
+            }
+        };
+    }
 }

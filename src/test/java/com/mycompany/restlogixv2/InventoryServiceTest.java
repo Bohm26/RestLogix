@@ -9,16 +9,16 @@ package com.mycompany.restlogixv2;
  * @author joaopedro
  */
 
-import repository.InventoryRepository;
-import domain.Inventory;
-import exception.BusinessException;
+import com.mycompany.restlogixv2.repository.InventoryRepository;
+import com.mycompany.restlogixv2.entities.Inventory;
+import com.mycompany.restlogixv2.exception.BusinessException;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import service.InventoryService;
+import com.mycompany.restlogixv2.service.InventoryService;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;

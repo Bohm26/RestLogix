@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import util.PasswordUtils;
+import com.mycompany.restlogixv2.util.PasswordUtils;
 import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Testes da Classe PasswordUtils")

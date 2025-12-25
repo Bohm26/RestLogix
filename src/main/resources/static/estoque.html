@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>RestLogix | Estoque</title>
+
+    <link rel="stylesheet" href="/css/estoque.css" type="text/css"/>
+
+</head>
+<body>
+
+<div class="container">
+
+    <aside class="sidebar">
+        <h2>RestLogix</h2>
+
+        <nav>
+            <button onclick="goTo('dashboard.html')">Dashboard</button>
+            <button class="active">Estoque</button>
+            <button onclick="goTo('receitas.html')">Receitas</button>
+            <button onclick="goTo('insumos.html')">Insumos</button>
+        </nav>
+
+        <button class="logout" onclick="logout()">Sair</button>
+    </aside>
+
+    <main class="content">
+        <h1>Controle de Estoque</h1>
+
+        <div class="actions">
+            <input type="text" id="search" placeholder="Buscar insumo..." onkeyup="searchItem()">
+            <button onclick="addItem()">+ Adicionar Insumo</button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Quantidade</th>
+                    <th>Unidade</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="inventoryTable">
+                <tr>
+                    <td>Arroz</td>
+                    <td>50</td>
+                    <td>kg</td>
+                    <td><button>Editar</button></td>
+                </tr>
+                <tr>
+                    <td>Feijão</td>
+                    <td>30</td>
+                    <td>kg</td>
+                    <td><button>Editar</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+</div>
+
+<script src="../js/estoque.js"></script>
+</body>
+</html>

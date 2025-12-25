@@ -9,7 +9,6 @@ package com.mycompany.restlogixv2;
  * @author joaopedro
  */
 import java.math.BigDecimal;
-import java.util.List;
 
 /**
  * Classe com cálculos simples para testes unitários
